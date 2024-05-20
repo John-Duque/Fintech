@@ -34,7 +34,6 @@ essas informações em um banco de dados MySQL.
 1. **Clone o repositório**:
    ```sh
    git clone https://github.com/John-Duque/fintech.git
-   cd fintech
    ```
 
    ```sh
