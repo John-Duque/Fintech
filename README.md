@@ -1,8 +1,22 @@
 # Fintech
 
+---
+
 Este projeto é um serviço backend desenvolvido em Spring Boot para coletar informações de crédito de usuários
 interessados em solicitar um empréstimo. O serviço aceita solicitações via API, valida os dados fornecidos e armazena
 essas informações em um banco de dados MySQL.
+
+---
+
+## Índice
+
+1. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+2. [Configuração e Execução](#configuração-e-execução)
+    1. [Pré-requisitos](#pré-requisitos)
+    2. [Passos para Configuração](#passos-para-configuração)
+3. [Execução](#execução)
+4. [Usando o Swagger](#usando-o-swagger)
+5. [Acessando o Banco de Dados MySQL via Docker](#acessando-o-banco-de-dados-mysql-via-docker)
 
 ---
 
@@ -39,7 +53,7 @@ essas informações em um banco de dados MySQL.
    ```sh
    cd fintech
    ```
-   
+
 2. **Baixe as imagens necessárias**:
     ```sh
    docker pull maven:3.8.5-openjdk-17
@@ -56,6 +70,7 @@ essas informações em um banco de dados MySQL.
 3. **Compile e inicie a aplicação com Docker Compose**:
     ```sh
     docker-compose up --build
+   ```
 
 ---
 
@@ -135,3 +150,51 @@ Lembre-se de adaptar os valores de "name", "loanAmount" e "monthlyIncome" confor
 solicitação reais.
 
 ---
+
+### Acessando o Banco de Dados MySQL via Docker
+
+Para acessar o banco de dados MySQL que está sendo executado em um contêiner Docker, você pode seguir os passos abaixo:
+
+1. **identifique o nome ou ID do contêiner MySQL**:
+
+   ```sh
+   docker ps
+   ```
+
+   Localize o contêiner MySQL na lista e anote o nome ou ID do contêiner.
+
+2. **Acesse o contêiner MySQL**:
+
+   ```sh
+   docker exec -it <container_name_or_id> mysql -u root -p
+   ```
+   Substitua <container_name_or_id> pelo nome ou ID do contêiner que você anotou. Será solicitado que você insira a
+   senha do usuário root do MySQL. **Não se esqueça de passar a senha da base de dados ao utilizar o parâmetro -p**.
+
+3. **Interaja com o banco de dados**:
+
+- Uma vez conectado, você pode executar comandos SQL para interagir com o banco de dados. Por exemplo, para listar todas as bases de dados:
+
+   ```sh
+   SHOW DATABASES;
+   ```
+  
+- Para usar uma base de dados específica:
+
+   ```sh
+   USE nome_da_base_de_dados;
+   ```
+  
+- Para listar todas as tabelas dentro da base de dados selecionada:
+
+   ```sh
+   SHOW TABLES;
+   ```
+  
+- Para visualizar os dados de uma tabela específica:
+
+   ```sh
+   SELECT * FROM nome_da_tabela;
+   ```
+
+Seguindo esses passos, você poderá acessar e gerenciar o banco de dados MySQL diretamente do contêiner Docker.
