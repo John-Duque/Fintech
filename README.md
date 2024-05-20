@@ -1,7 +1,5 @@
 # Fintech
 
----
-
 Este projeto é um serviço backend desenvolvido em Spring Boot para coletar informações de crédito de usuários
 interessados em solicitar um empréstimo. O serviço aceita solicitações via API, valida os dados fornecidos e armazena
 essas informações em um banco de dados MySQL.
